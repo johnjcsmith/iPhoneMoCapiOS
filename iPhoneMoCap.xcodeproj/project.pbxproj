@@ -1,0 +1,394 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		A255DA780381E2D20047AC65 /* Pods_iPhoneMoCap.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EC8FE2A6A5EDE719DE88E375 /* Pods_iPhoneMoCap.framework */; };
+		AEC6BF3F1EAF320E007CA6E5 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEC6BF3E1EAF320E007CA6E5 /* AppDelegate.swift */; };
+		AEC6BF461EAF320E007CA6E5 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AEC6BF451EAF320E007CA6E5 /* Assets.xcassets */; };
+		AEFC972E1EB9A4EC0003E407 /* SocketController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEFC972D1EB9A4EC0003E407 /* SocketController.swift */; };
+		F6DFBA7B1FB058B300AF04FD /* BlendShapeTracker.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6DFBA731FB058B300AF04FD /* BlendShapeTracker.swift */; };
+		F6DFBA7D1FB058B300AF04FD /* FaceGeoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6DFBA751FB058B300AF04FD /* FaceGeoViewController.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		3C6B831A085D89C86D3B162A /* Pods-iPhoneMoCap.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-iPhoneMoCap.release.xcconfig"; path = "Pods/Target Support Files/Pods-iPhoneMoCap/Pods-iPhoneMoCap.release.xcconfig"; sourceTree = "<group>"; };
+		AEC6BF3B1EAF320E007CA6E5 /* iPhoneMoCap.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = iPhoneMoCap.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		AEC6BF3E1EAF320E007CA6E5 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		AEC6BF451EAF320E007CA6E5 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		AEC6BF4A1EAF320E007CA6E5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		AEFC972D1EB9A4EC0003E407 /* SocketController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SocketController.swift; sourceTree = "<group>"; };
+		BE91DC465F20E9E7DD7FD1BE /* Pods-iPhoneMoCap.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-iPhoneMoCap.debug.xcconfig"; path = "Pods/Target Support Files/Pods-iPhoneMoCap/Pods-iPhoneMoCap.debug.xcconfig"; sourceTree = "<group>"; };
+		EC8FE2A6A5EDE719DE88E375 /* Pods_iPhoneMoCap.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_iPhoneMoCap.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		F6DFBA731FB058B300AF04FD /* BlendShapeTracker.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BlendShapeTracker.swift; sourceTree = "<group>"; };
+		F6DFBA751FB058B300AF04FD /* FaceGeoViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FaceGeoViewController.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		AEC6BF381EAF320E007CA6E5 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A255DA780381E2D20047AC65 /* Pods_iPhoneMoCap.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		232D2CC99AD61F876056BC34 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				BE91DC465F20E9E7DD7FD1BE /* Pods-iPhoneMoCap.debug.xcconfig */,
+				3C6B831A085D89C86D3B162A /* Pods-iPhoneMoCap.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		AEC6BF321EAF320E007CA6E5 = {
+			isa = PBXGroup;
+			children = (
+				AEC6BF3D1EAF320E007CA6E5 /* iPhoneMoCap */,
+				AEC6BF3C1EAF320E007CA6E5 /* Products */,
+				232D2CC99AD61F876056BC34 /* Pods */,
+				DC7EAA5270731ADD9301FAE1 /* Frameworks */,
+			);
+			sourceTree = "<group>";
+		};
+		AEC6BF3C1EAF320E007CA6E5 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				AEC6BF3B1EAF320E007CA6E5 /* iPhoneMoCap.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		AEC6BF3D1EAF320E007CA6E5 /* iPhoneMoCap */ = {
+			isa = PBXGroup;
+			children = (
+				F6DFBA871FB0590000AF04FD /* ARKit */,
+				AEFC972D1EB9A4EC0003E407 /* SocketController.swift */,
+				AEC6BF3E1EAF320E007CA6E5 /* AppDelegate.swift */,
+				AEC6BF451EAF320E007CA6E5 /* Assets.xcassets */,
+				AEC6BF4A1EAF320E007CA6E5 /* Info.plist */,
+			);
+			path = iPhoneMoCap;
+			sourceTree = "<group>";
+		};
+		DC7EAA5270731ADD9301FAE1 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				EC8FE2A6A5EDE719DE88E375 /* Pods_iPhoneMoCap.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		F6DFBA871FB0590000AF04FD /* ARKit */ = {
+			isa = PBXGroup;
+			children = (
+				F6DFBA751FB058B300AF04FD /* FaceGeoViewController.swift */,
+				F6DFBA731FB058B300AF04FD /* BlendShapeTracker.swift */,
+			);
+			path = ARKit;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		AEC6BF3A1EAF320E007CA6E5 /* iPhoneMoCap */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = AEC6BF4D1EAF320E007CA6E5 /* Build configuration list for PBXNativeTarget "iPhoneMoCap" */;
+			buildPhases = (
+				7BA3B0787B820E6AB9B4BDEB /* [CP] Check Pods Manifest.lock */,
+				AEC6BF371EAF320E007CA6E5 /* Sources */,
+				AEC6BF381EAF320E007CA6E5 /* Frameworks */,
+				AEC6BF391EAF320E007CA6E5 /* Resources */,
+				BB20EAF39FB4F4C1AAF79D7F /* [CP] Embed Pods Frameworks */,
+				E73C0A8D60B91786E2477290 /* [CP] Copy Pods Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = iPhoneMoCap;
+			productName = DogeChat;
+			productReference = AEC6BF3B1EAF320E007CA6E5 /* iPhoneMoCap.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		AEC6BF331EAF320E007CA6E5 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 0830;
+				LastUpgradeCheck = 0900;
+				ORGANIZATIONNAME = "Luke Parham";
+				TargetAttributes = {
+					AEC6BF3A1EAF320E007CA6E5 = {
+						CreatedOnToolsVersion = 8.3.1;
+						DevelopmentTeam = 78KFAJBHAX;
+						ProvisioningStyle = Automatic;
+					};
+				};
+			};
+			buildConfigurationList = AEC6BF361EAF320E007CA6E5 /* Build configuration list for PBXProject "iPhoneMoCap" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = AEC6BF321EAF320E007CA6E5;
+			productRefGroup = AEC6BF3C1EAF320E007CA6E5 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				AEC6BF3A1EAF320E007CA6E5 /* iPhoneMoCap */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		AEC6BF391EAF320E007CA6E5 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				AEC6BF461EAF320E007CA6E5 /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		7BA3B0787B820E6AB9B4BDEB /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		BB20EAF39FB4F4C1AAF79D7F /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-iPhoneMoCap/Pods-iPhoneMoCap-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		E73C0A8D60B91786E2477290 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-iPhoneMoCap/Pods-iPhoneMoCap-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		AEC6BF371EAF320E007CA6E5 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				AEC6BF3F1EAF320E007CA6E5 /* AppDelegate.swift in Sources */,
+				AEFC972E1EB9A4EC0003E407 /* SocketController.swift in Sources */,
+				F6DFBA7D1FB058B300AF04FD /* FaceGeoViewController.swift in Sources */,
+				F6DFBA7B1FB058B300AF04FD /* BlendShapeTracker.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin XCBuildConfiguration section */
+		AEC6BF4B1EAF320E007CA6E5 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		AEC6BF4C1EAF320E007CA6E5 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		AEC6BF4E1EAF320E007CA6E5 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = BE91DC465F20E9E7DD7FD1BE /* Pods-iPhoneMoCap.debug.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 78KFAJBHAX;
+				INFOPLIST_FILE = "$(SRCROOT)/iPhoneMoCap/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.RazeWare.DogeChat;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
+				SWIFT_VERSION = 4.0;
+			};
+			name = Debug;
+		};
+		AEC6BF4F1EAF320E007CA6E5 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 3C6B831A085D89C86D3B162A /* Pods-iPhoneMoCap.release.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 78KFAJBHAX;
+				INFOPLIST_FILE = "$(SRCROOT)/iPhoneMoCap/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.RazeWare.DogeChat;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
+				SWIFT_VERSION = 4.0;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		AEC6BF361EAF320E007CA6E5 /* Build configuration list for PBXProject "iPhoneMoCap" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				AEC6BF4B1EAF320E007CA6E5 /* Debug */,
+				AEC6BF4C1EAF320E007CA6E5 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		AEC6BF4D1EAF320E007CA6E5 /* Build configuration list for PBXNativeTarget "iPhoneMoCap" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				AEC6BF4E1EAF320E007CA6E5 /* Debug */,
+				AEC6BF4F1EAF320E007CA6E5 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = AEC6BF331EAF320E007CA6E5 /* Project object */;
+}

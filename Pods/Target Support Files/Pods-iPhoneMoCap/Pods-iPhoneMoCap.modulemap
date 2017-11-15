@@ -1,0 +1,6 @@
+framework module Pods_iPhoneMoCap {
+  umbrella header "Pods-iPhoneMoCap-umbrella.h"
+
+  export *
+  module * { export * }
+}
