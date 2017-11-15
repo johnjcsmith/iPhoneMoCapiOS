@@ -55,7 +55,7 @@ class FaceGeoViewController: UIViewController, ARSessionDelegate {
             $0.forEach {
                 key, value in
                 
-                self.socketController.sendMessage(message: "\(key.rawValue) - \(value.doubleValue)")
+                self.socketController.sendMessage(message: "\(key.rawValue) - \(Int(value.doubleValue * 100))")
             }
         }
         
@@ -85,7 +85,7 @@ class FaceGeoViewController: UIViewController, ARSessionDelegate {
             alert.addTextField {
                 (textField) in
                 
-                textField.text = "192.168.8.102"
+                textField.text = "192.168.8.106"
                 textField.keyboardType = UIKeyboardType.numbersAndPunctuation
             }
             
