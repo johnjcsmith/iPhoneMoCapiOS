@@ -13,13 +13,13 @@ import SnapKit
 class FaceGeoViewController: UIViewController, ARSessionDelegate {
     
     
-    var socketController = SocketController()
+    var socketController: SocketController? = nil
     
     
     var ipAddress: String? {
         didSet {
             if ipAddress != nil {
-                socketController.setupNetworkCommunication(ipAddress: ipAddress!)
+                socketController = SocketController(ipAddress!)
             }
         }
     }
@@ -55,7 +55,7 @@ class FaceGeoViewController: UIViewController, ARSessionDelegate {
             $0.forEach {
                 key, value in
                 
-                self.socketController.sendMessage(message: "\(key.rawValue) - \(Int(value.doubleValue * 100))")
+                self.socketController?.sendMessage(message: "\(key.rawValue) - \(Int(value.doubleValue * 100))")
             }
         }
         
@@ -79,25 +79,23 @@ class FaceGeoViewController: UIViewController, ARSessionDelegate {
         super.viewDidAppear(animated)
         
         
-        if ipAddress == nil {
-            let alert = UIAlertController(title: "IP Setup", message: "Please enter your computer's IP address", preferredStyle: .alert)
+        
+        let alert = UIAlertController(title: "IP Setup", message: "Please enter your computer's IP address", preferredStyle: .alert)
+        
+        alert.addTextField {
+            (textField) in
             
-            alert.addTextField {
-                (textField) in
-                
-                textField.text = "192.168.8.106"
-                textField.keyboardType = UIKeyboardType.numbersAndPunctuation
-            }
-            
-            alert.addAction(UIAlertAction(title: "OK", style: .default, handler: { [weak alert] (_) in
-                let textField = alert!.textFields![0]
-                self.ipAddress = textField.text
-            }))
-            
-            self.present(alert, animated: true, completion: nil)
-        } else {
-            socketController.setupNetworkCommunication(ipAddress: ipAddress!)
+            textField.text = "192.168.8.106"
+            textField.keyboardType = UIKeyboardType.numbersAndPunctuation
         }
+        
+        alert.addAction(UIAlertAction(title: "OK", style: .default, handler: { [weak alert] (_) in
+            let textField = alert!.textFields![0]
+            self.ipAddress = textField.text
+        }))
+        
+        self.present(alert, animated: true, completion: nil)
+  
         
         UIApplication.shared.isIdleTimerDisabled = true
         
@@ -107,7 +105,7 @@ class FaceGeoViewController: UIViewController, ARSessionDelegate {
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
         
-        socketController.closeSockets()
+        socketController?.closeSockets()
         session.pause()
     }
     
