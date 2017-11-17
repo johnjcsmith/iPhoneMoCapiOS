@@ -16,14 +16,6 @@ class FaceGeoViewController: UIViewController, ARSessionDelegate {
     var socketController: SocketController? = nil
     
     
-    var ipAddress: String? {
-        didSet {
-            if ipAddress != nil {
-                socketController = SocketController(ipAddress!)
-            }
-        }
-    }
-    
     // MARK: Outlets
 
     var sceneView = ARSCNView()
@@ -72,30 +64,12 @@ class FaceGeoViewController: UIViewController, ARSessionDelegate {
             make.edges.equalTo(self.view)
         }
         
+        socketController = SocketController()
         
     }
 
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-        
-        
-        
-        let alert = UIAlertController(title: "IP Setup", message: "Please enter your computer's IP address", preferredStyle: .alert)
-        
-        alert.addTextField {
-            (textField) in
-            
-            textField.text = "192.168.8.106"
-            textField.keyboardType = UIKeyboardType.numbersAndPunctuation
-        }
-        
-        alert.addAction(UIAlertAction(title: "OK", style: .default, handler: { [weak alert] (_) in
-            let textField = alert!.textFields![0]
-            self.ipAddress = textField.text
-        }))
-        
-        self.present(alert, animated: true, completion: nil)
-  
         
         UIApplication.shared.isIdleTimerDisabled = true
         

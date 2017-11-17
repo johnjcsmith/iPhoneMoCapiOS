@@ -9,28 +9,65 @@ protocol ViewDelegate: class {
 
 class SocketController: NSObject, StreamDelegate, GCDAsyncUdpSocketDelegate {
     weak var delegate: ViewDelegate?
+    var broadCastListnerSocket: GCDAsyncUdpSocket?
+    var outputSocket: GCDAsyncUdpSocket?
     
-    var socket:GCDAsyncUdpSocket?
-    var ipAddress = ""
+    var hostAddress: String?
     
-    init(_ ipAddress: String) {
+    override init() {
         super.init()
         
-        self.socket = GCDAsyncUdpSocket(delegate: self, delegateQueue: DispatchQueue.main)
-        self.ipAddress = ipAddress
+        outputSocket = GCDAsyncUdpSocket(delegate: self, delegateQueue: DispatchQueue.main)
+        broadCastListnerSocket = GCDAsyncUdpSocket(delegate: self, delegateQueue: DispatchQueue.main)
+        
+        setupBroadCastListner()
+    }
+    
+    func setupBroadCastListner(){
+        
+        do {
+            try broadCastListnerSocket?.bind(toPort: 49452)
+            try broadCastListnerSocket?.beginReceiving()
+
+
+        } catch {
+            print(error)
+        }
         
     }
     
     func sendMessage(message: String) {
         
-        let data = message.data(using: .ascii)!
+        guard hostAddress != nil else {return}
         
-        socket?.send(data, toHost: ipAddress, port: 8080, withTimeout: 0.1, tag: 0)
+        let data = message.data(using: .ascii)!
+        outputSocket?.send(data, toHost: hostAddress!, port: 49452, withTimeout: 0.1, tag: 0)
 
     }
     
     func closeSockets() {
-        socket?.close()
+        outputSocket?.close()
+    }
+
+    func udpSocket(_ sock: GCDAsyncUdpSocket, didReceive data: Data, fromAddress address: Data, withFilterContext filterContext: Any?) {
+        let message  = String(data: data, encoding: String.Encoding.ascii)
+        if (message?.contains("iPhoneMoCapBroadCast") ?? false) {
+            
+            var host: NSString?
+            var port1: UInt16 = 0
+            GCDAsyncUdpSocket.getHost(&host, port: &port1, fromAddress: address)
+            
+            if let host = host {
+                hostReceived(host: String(host))
+            }
+        }
+    }
+    
+    func hostReceived(host: String) {
+        // Stop listening to broadcasts
+        broadCastListnerSocket?.close()
+        
+        hostAddress = host
     }
 }
 
