@@ -11,6 +11,7 @@
 		AEC6BF3F1EAF320E007CA6E5 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEC6BF3E1EAF320E007CA6E5 /* AppDelegate.swift */; };
 		AEC6BF461EAF320E007CA6E5 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AEC6BF451EAF320E007CA6E5 /* Assets.xcassets */; };
 		AEFC972E1EB9A4EC0003E407 /* SocketController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEFC972D1EB9A4EC0003E407 /* SocketController.swift */; };
+		F63392851FBFED80007A93CD /* Launch Screen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F63392841FBFED80007A93CD /* Launch Screen.storyboard */; };
 		F6DFBA7B1FB058B300AF04FD /* BlendShapeTracker.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6DFBA731FB058B300AF04FD /* BlendShapeTracker.swift */; };
 		F6DFBA7D1FB058B300AF04FD /* FaceGeoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6DFBA751FB058B300AF04FD /* FaceGeoViewController.swift */; };
 /* End PBXBuildFile section */
@@ -24,6 +25,7 @@
 		AEFC972D1EB9A4EC0003E407 /* SocketController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SocketController.swift; sourceTree = "<group>"; };
 		BE91DC465F20E9E7DD7FD1BE /* Pods-iPhoneMoCap.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-iPhoneMoCap.debug.xcconfig"; path = "Pods/Target Support Files/Pods-iPhoneMoCap/Pods-iPhoneMoCap.debug.xcconfig"; sourceTree = "<group>"; };
 		EC8FE2A6A5EDE719DE88E375 /* Pods_iPhoneMoCap.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_iPhoneMoCap.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		F63392841FBFED80007A93CD /* Launch Screen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = "Launch Screen.storyboard"; sourceTree = "<group>"; };
 		F6DFBA731FB058B300AF04FD /* BlendShapeTracker.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BlendShapeTracker.swift; sourceTree = "<group>"; };
 		F6DFBA751FB058B300AF04FD /* FaceGeoViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FaceGeoViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -75,6 +77,7 @@
 				AEC6BF3E1EAF320E007CA6E5 /* AppDelegate.swift */,
 				AEC6BF451EAF320E007CA6E5 /* Assets.xcassets */,
 				AEC6BF4A1EAF320E007CA6E5 /* Info.plist */,
+				F63392841FBFED80007A93CD /* Launch Screen.storyboard */,
 			);
 			path = iPhoneMoCap;
 			sourceTree = "<group>";
@@ -159,6 +162,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F63392851FBFED80007A93CD /* Launch Screen.storyboard in Resources */,
 				AEC6BF461EAF320E007CA6E5 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -343,7 +347,7 @@
 				DEVELOPMENT_TEAM = 78KFAJBHAX;
 				INFOPLIST_FILE = "$(SRCROOT)/iPhoneMoCap/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.RazeWare.DogeChat;
+				PRODUCT_BUNDLE_IDENTIFIER = com.enabled.iPhoneMoCap;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 4.0;
@@ -360,7 +364,7 @@
 				DEVELOPMENT_TEAM = 78KFAJBHAX;
 				INFOPLIST_FILE = "$(SRCROOT)/iPhoneMoCap/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.RazeWare.DogeChat;
+				PRODUCT_BUNDLE_IDENTIFIER = com.enabled.iPhoneMoCap;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 4.0;
