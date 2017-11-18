@@ -1,5 +1,6 @@
 import UIKit
 import CocoaAsyncSocket
+import NotificationBannerSwift
 
 protocol ViewDelegate: class {
     func receivedMessage(message: [String])
@@ -28,6 +29,7 @@ class SocketController: NSObject, StreamDelegate, GCDAsyncUdpSocketDelegate {
             try broadCastListnerSocket?.beginReceiving()
             
         } catch {
+            NotificationBanner(title: "Uhh Oh!", subtitle: "There was a problem enabling Auto Discovery", style: .danger).show()
             print(error)
         }
         
@@ -73,6 +75,8 @@ class SocketController: NSObject, StreamDelegate, GCDAsyncUdpSocketDelegate {
         broadCastListnerSocket?.close()
         
         hostAddress = host
+        
+        NotificationBanner(title: "Paired with Host!", subtitle: "Your facial data is now streaming to \(host)", style: .success).show()
     }
 }
 
