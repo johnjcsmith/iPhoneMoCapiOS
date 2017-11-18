@@ -74,6 +74,7 @@ class FaceGeoViewController: UIViewController, ARSessionDelegate {
         UIApplication.shared.isIdleTimerDisabled = true
         
         resetTracking()
+        socketController?.openSockets()
     }
 
     override func viewWillDisappear(_ animated: Bool) {
@@ -118,6 +119,7 @@ class FaceGeoViewController: UIViewController, ARSessionDelegate {
         let configuration = ARFaceTrackingConfiguration()
         configuration.isLightEstimationEnabled = true
         session.run(configuration, options: [.resetTracking, .removeExistingAnchors])
+        
     }
   
 }

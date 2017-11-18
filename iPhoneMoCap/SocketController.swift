@@ -19,17 +19,14 @@ class SocketController: NSObject, StreamDelegate, GCDAsyncUdpSocketDelegate {
         
         outputSocket = GCDAsyncUdpSocket(delegate: self, delegateQueue: DispatchQueue.main)
         broadCastListnerSocket = GCDAsyncUdpSocket(delegate: self, delegateQueue: DispatchQueue.main)
-        
-        setupBroadCastListner()
     }
     
-    func setupBroadCastListner(){
+    func setupAutoDiscoveryListner(){
         
         do {
             try broadCastListnerSocket?.bind(toPort: 49452)
             try broadCastListnerSocket?.beginReceiving()
-
-
+            
         } catch {
             print(error)
         }
@@ -42,11 +39,15 @@ class SocketController: NSObject, StreamDelegate, GCDAsyncUdpSocketDelegate {
         
         let data = message.data(using: .ascii)!
         outputSocket?.send(data, toHost: hostAddress!, port: 49452, withTimeout: 0.1, tag: 0)
-
     }
     
     func closeSockets() {
         outputSocket?.close()
+        broadCastListnerSocket?.close()
+    }
+    
+    func openSockets() {
+        setupAutoDiscoveryListner();
     }
 
     func udpSocket(_ sock: GCDAsyncUdpSocket, didReceive data: Data, fromAddress address: Data, withFilterContext filterContext: Any?) {
@@ -61,6 +62,10 @@ class SocketController: NSObject, StreamDelegate, GCDAsyncUdpSocketDelegate {
                 hostReceived(host: String(host))
             }
         }
+    }
+    
+    func restartAutoDiscovery() {
+        setupAutoDiscoveryListner()
     }
     
     func hostReceived(host: String) {
