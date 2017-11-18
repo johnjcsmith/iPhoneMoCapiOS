@@ -33,6 +33,7 @@ class SocketController: NSObject, StreamDelegate, GCDAsyncUdpSocketDelegate {
             print(error)
         }
         
+        NotificationBanner(title: "Listening for Auto Discovery ....", subtitle: "Please open the iPhoneMoCap host", style: .info).show()
     }
     
     func sendMessage(message: String) {
@@ -76,6 +77,7 @@ class SocketController: NSObject, StreamDelegate, GCDAsyncUdpSocketDelegate {
         
         hostAddress = host
         
+        NotificationBannerQueue.default.removeAll();
         NotificationBanner(title: "Paired with Host!", subtitle: "Your facial data is now streaming to \(host)", style: .success).show()
     }
 }
