@@ -33,7 +33,8 @@ class SocketController: NSObject, StreamDelegate, GCDAsyncUdpSocketDelegate {
             print(error)
         }
         
-        NotificationBanner(title: "Listening for Auto Discovery ....", subtitle: "Please open the iPhoneMoCap host", style: .info).show()
+        let loadingBanner = NotificationBanner(title: "Listening for Auto Discovery ....", subtitle: "Please open the iPhoneMoCap host", style: .info)
+        loadingBanner.show()
     }
     
     func sendMessage(message: String) {
