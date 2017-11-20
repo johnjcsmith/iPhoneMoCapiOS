@@ -2,14 +2,17 @@ import UIKit
 import CocoaAsyncSocket
 import NotificationBannerSwift
 
-protocol ViewDelegate: class {
-    func receivedMessage(message: [String])
+protocol SocketControllerViewDelegate: class {
+    func updatedState(state: SocketControllerState)
 }
 
-
+enum SocketControllerState {
+    case waitingForHost
+    case readyToReceive
+}
 
 class SocketController: NSObject, StreamDelegate, GCDAsyncUdpSocketDelegate {
-    weak var delegate: ViewDelegate?
+    var delegate: SocketControllerViewDelegate?
     var broadCastListnerSocket: GCDAsyncUdpSocket?
     var outputSocket: GCDAsyncUdpSocket?
     
@@ -33,8 +36,8 @@ class SocketController: NSObject, StreamDelegate, GCDAsyncUdpSocketDelegate {
             print(error)
         }
         
-        let loadingBanner = NotificationBanner(title: "Listening for Auto Discovery ....", subtitle: "Please open the iPhoneMoCap host", style: .info)
-        loadingBanner.show()
+
+        self.delegate?.updatedState(state: .waitingForHost)
     }
     
     func sendMessage(message: String) {
@@ -78,8 +81,7 @@ class SocketController: NSObject, StreamDelegate, GCDAsyncUdpSocketDelegate {
         
         hostAddress = host
         
-        NotificationBannerQueue.default.removeAll();
-        NotificationBanner(title: "Paired with Host!", subtitle: "Your facial data is now streaming to \(host)", style: .success).show()
+        self.delegate?.updatedState(state: .readyToReceive)
     }
 }
 

@@ -9,19 +9,15 @@ import ARKit
 import SceneKit
 import UIKit
 import SnapKit
+import NotificationBannerSwift
 
-class FaceGeoViewController: UIViewController, ARSessionDelegate {
-    
-    
+class FaceGeoViewController: UIViewController, ARSessionDelegate, SocketControllerViewDelegate {
     var socketController: SocketController? = nil
-    
-    
-    // MARK: Outlets
-
+    var loadingBanner: NotificationBanner? = nil
     var sceneView = ARSCNView()
     
     
-    var blurView = UIVisualEffectView()
+    var blurView = UIVisualEffectView(effect: UIBlurEffect(style: UIBlurEffectStyle.dark))
 
 
     var session: ARSession {
@@ -29,8 +25,6 @@ class FaceGeoViewController: UIViewController, ARSessionDelegate {
     }
     
     let blendShapeTracker = BlendShapeTracker()
-    
-
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -65,8 +59,11 @@ class FaceGeoViewController: UIViewController, ARSessionDelegate {
         }
         
         socketController = SocketController()
+        socketController?.delegate = self
         
     }
+    
+    
 
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
@@ -84,6 +81,7 @@ class FaceGeoViewController: UIViewController, ARSessionDelegate {
         session.pause()
     }
     
+
 
     func session(_ session: ARSession, didFailWithError error: Error) {
         guard error is ARError else { return }
@@ -121,6 +119,31 @@ class FaceGeoViewController: UIViewController, ARSessionDelegate {
         session.run(configuration, options: [.resetTracking, .removeExistingAnchors])
         
     }
+    
+    func updatedState(state: SocketControllerState) {
+        switch (state) {
+        case .readyToReceive:
+            loadingBanner?.dismiss()
+            
+            NotificationBanner(title: "Paired with Host!", subtitle: "Facial data now streaming.", style: .success).show()
+            
+            UIView.animate(withDuration: 1, animations: {
+                [weak self] in
+                
+                self?.blurView.alpha = 0
+            })
+            
+            break
+            
+        case .waitingForHost:
+            loadingBanner = NotificationBanner(title: "Listening for Auto Discovery ....", subtitle: "Please open the iPhoneMoCap host", style: .info)
+            
+            loadingBanner?.autoDismiss = false
+            loadingBanner?.show()
+            break
+        }
+    }
+    
   
 }
 
