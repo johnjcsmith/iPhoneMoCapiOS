@@ -9,6 +9,7 @@ protocol SocketControllerViewDelegate: class {
 enum SocketControllerState {
     case waitingForHost
     case readyToReceive
+    case error(message: String)
 }
 
 class SocketController: NSObject, StreamDelegate, GCDAsyncUdpSocketDelegate {
@@ -25,6 +26,16 @@ class SocketController: NSObject, StreamDelegate, GCDAsyncUdpSocketDelegate {
         broadCastListnerSocket = GCDAsyncUdpSocket(delegate: self, delegateQueue: DispatchQueue.main)
     }
     
+    
+    func closeSockets() {
+        outputSocket?.close()
+        broadCastListnerSocket?.close()
+    }
+    
+    func openSockets() {
+        setupAutoDiscoveryListner();
+    }
+    
     func setupAutoDiscoveryListner(){
         
         do {
@@ -32,7 +43,7 @@ class SocketController: NSObject, StreamDelegate, GCDAsyncUdpSocketDelegate {
             try broadCastListnerSocket?.beginReceiving()
             
         } catch {
-            NotificationBanner(title: "Uhh Oh!", subtitle: "There was a problem enabling Auto Discovery", style: .danger).show()
+            self.delegate?.updatedState(state: .error(message: "There was a problem enabling Auto Discovery"))
             print(error)
         }
         
@@ -46,15 +57,6 @@ class SocketController: NSObject, StreamDelegate, GCDAsyncUdpSocketDelegate {
         
         let data = message.data(using: .ascii)!
         outputSocket?.send(data, toHost: hostAddress!, port: 49452, withTimeout: 0.1, tag: 0)
-    }
-    
-    func closeSockets() {
-        outputSocket?.close()
-        broadCastListnerSocket?.close()
-    }
-    
-    func openSockets() {
-        setupAutoDiscoveryListner();
     }
 
     func udpSocket(_ sock: GCDAsyncUdpSocket, didReceive data: Data, fromAddress address: Data, withFilterContext filterContext: Any?) {

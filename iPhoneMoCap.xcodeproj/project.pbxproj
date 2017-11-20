@@ -72,7 +72,8 @@
 		AEC6BF3D1EAF320E007CA6E5 /* iPhoneMoCap */ = {
 			isa = PBXGroup;
 			children = (
-				F6DFBA871FB0590000AF04FD /* ARKit */,
+				F6DFBA751FB058B300AF04FD /* FaceGeoViewController.swift */,
+				F6DFBA731FB058B300AF04FD /* BlendShapeTracker.swift */,
 				AEFC972D1EB9A4EC0003E407 /* SocketController.swift */,
 				AEC6BF3E1EAF320E007CA6E5 /* AppDelegate.swift */,
 				AEC6BF451EAF320E007CA6E5 /* Assets.xcassets */,
@@ -88,15 +89,6 @@
 				EC8FE2A6A5EDE719DE88E375 /* Pods_iPhoneMoCap.framework */,
 			);
 			name = Frameworks;
-			sourceTree = "<group>";
-		};
-		F6DFBA871FB0590000AF04FD /* ARKit */ = {
-			isa = PBXGroup;
-			children = (
-				F6DFBA751FB058B300AF04FD /* FaceGeoViewController.swift */,
-				F6DFBA731FB058B300AF04FD /* BlendShapeTracker.swift */,
-			);
-			path = ARKit;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */

@@ -141,6 +141,11 @@ class FaceGeoViewController: UIViewController, ARSessionDelegate, SocketControll
             loadingBanner?.autoDismiss = false
             loadingBanner?.show()
             break
+        
+        
+        case .error(let message):
+            NotificationBanner(title: "Uh Oh!", subtitle: message, style: .danger).show()
+            break
         }
     }
     
