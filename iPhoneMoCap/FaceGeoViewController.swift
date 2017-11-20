@@ -38,11 +38,14 @@ class FaceGeoViewController: UIViewController, ARSessionDelegate, SocketControll
         self.view.addSubview(blurView)
         
         blendShapeTracker.didGetBlendShapes = {
-            $0.forEach {
-                key, value in
-                
-                self.socketController?.sendMessage(message: "\(key.rawValue) - \(Int(value.doubleValue * 100))")
-            }
+            
+            // Reduce all of the blend shapes into a message delimited by a |
+            let message = $0.reduce("", {
+                result, input in
+                result.appending("\(input.key.rawValue) - \(Int(input.value.doubleValue * 100))|")
+            })
+            
+            self.socketController?.sendMessage(message: message)
         }
         
         

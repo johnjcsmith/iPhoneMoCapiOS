@@ -64,8 +64,9 @@ class SocketController: NSObject, StreamDelegate, GCDAsyncUdpSocketDelegate {
         if (message?.contains("iPhoneMoCapBroadCast") ?? false) {
             
             var host: NSString?
-            var port1: UInt16 = 0
-            GCDAsyncUdpSocket.getHost(&host, port: &port1, fromAddress: address)
+            var port: UInt16 = 0
+            
+            GCDAsyncUdpSocket.getHost(&host, port: &port, fromAddress: address)
             
             if let host = host {
                 hostReceived(host: String(host))
