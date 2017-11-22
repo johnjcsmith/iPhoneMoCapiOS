@@ -14,6 +14,8 @@ We're going to cover the following:
 * The Unity extension to communicate with our iOS app
 * Source code for both projects
 
+The result is the ability to stream blend shape parameters live from your iPhone X into Unity to control your animation rig.
+
 ### Hasn't this been done? ###
 
 There was a [recent article](http://prostheticknowledge.tumblr.com/post/167520295696/iphone-x-face-motion-capture-into-houdini-were) showing the 3D output from the iPhone X front camera module. It shows the raw vertex data captured from iPhone X and put into Houdini (3D animation software). What we wanted, however, was to get the facial motion data itself and re-target it to an arbitrary 3D model.
@@ -50,7 +52,7 @@ The demo consists of two parts. The iOS app and the Unity extension host.
 
 #### iOS App  ####
 
-The iOS app streams the Blend Shapes Apple provides in `ARFaceAnchor.blendShapes` to the Unity host through a UDP socket. Essentially emitting a stream of messages, each with 50 blend shapes in the format ``'blend-shape-name:blend-shape-value'`.
+The iOS app streams the Blend Shapes Apple provides in `ARFaceAnchor.blendShapes` to the Unity host through a UDP socket. Essentially emitting a stream of messages, each with 50 blend shapes in the format `'blend-shape-name:blend-shape-value'`.
 
 <video controls="controls" width="1280" height="720" name="Video Name" src="images/resultlivesmall.mov"></video>
 
@@ -64,9 +66,10 @@ The Unity extension targets a `SkinnedMeshRenderer` with the name `blendShapeTar
 
 ### How to run the project ###
 
-    1. Clone and open the Unity project from [here](https://bitbucket.org/johnjcsmith/iphonemocap-unity).
-    2. Run the Unity project's scene
-    3. In the menu bar select `iPhoneMoCap` -> `MeshPreview`
-    4. Enable Mesh preview
-    5. Make sure your iPhone X is connected to the same Wifi network and build / run this application. (Don't forget to pod install)
-    6. This application should discover the unity host and begin streaming the motion data.
+* Clone and open the Unity project from [here](https://github.com/johnjcsmith/iPhoneMoCapUnity).
+* Run the Unity project's scene
+* In the menu bar select `iPhoneMoCap` -> `MeshPreview`
+* Enable Mesh preview
+* Grab the iOS app project from [here](https://github.com/johnjcsmith/iPhoneMoCapiOS)
+* Make sure your iPhone X is connected to the same Wifi network and build / run this application. (Don't forget to pod install)
+* This application should discover the unity host and begin streaming the motion data.
