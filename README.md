@@ -2,7 +2,7 @@
 
 When Apple announced iPhone X and Animoji the first thought we had was: can we use this to animate arbitrary 3D characters? That is, not just the Animoji designed by Apple.
 
-It turns out that yeah, not only is this possible. It's pretty easy and the ARKit face APIs are powerful enough to produce useful animation.
+It turns out that yeah, not only is this possible. It's pretty easy and the ARKit face APIs are powerful enough to produce useful animation. And we can capture it in real-time.
 
 ![Face Demo](images/result.gif)
 
@@ -10,11 +10,13 @@ We're going to cover the following:
 
 * Apple's blend shapes
 * Building the blend shapes on our model
-* Our iOS app
-* The Unity extension to communicate with our iOS app
+* Our iOS app to transmit the blend shapes over UDP
+* The Unity extension to receive the data from our iOS app
 * Source code for both projects
 
 The result is the ability to stream blend shape parameters live from your iPhone X into Unity to control your animation rig.
+
+<video controls="controls" width="1280" height="720" name="Video Name" src="images/resultlivesmall.mov"></video>
 
 ### Hasn't this been done? ###
 
@@ -52,13 +54,17 @@ The demo consists of two parts. The iOS app and the Unity extension host.
 
 #### iOS App  ####
 
+You can get it here: [github.com/johnjcsmith/iPhoneMoCap](https://github.com/johnjcsmith/iPhoneMoCap)
+
 The iOS app streams the Blend Shapes Apple provides in `ARFaceAnchor.blendShapes` to the Unity host through a UDP socket. Essentially emitting a stream of messages, each with 50 blend shapes in the format `'blend-shape-name:blend-shape-value'`.
 
-<video controls="controls" width="1280" height="720" name="Video Name" src="images/resultlivesmall.mov"></video>
+![Live Demo](images/johnphone.jpg)
 
 There are lots of performance improvements to be made here but it works for the purpose of a demo.
 
 #### Unity Extension Host ####
+
+You can get it here: [github.com/johnjcsmith/iPhoneMoCapUnity](https://github.com/johnjcsmith/iPhoneMoCapUnity)
 
 Inside of the Unity host we have an extension which opens up a UDP socket to listen for the iPhone's messages. When it receives a message it applies the blend shape values to the corresponding blend shape on the rig.
 
