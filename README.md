@@ -4,7 +4,7 @@ When Apple announced iPhone X and Animoji the first thought we had was: can we u
 
 It turns out that yeah, not only is this possible. It's pretty easy and the ARKit face APIs are powerful enough to produce useful animation. And we can capture it in real-time.
 
-![Face Demo](images/result.gif)
+![Face Demo](images/img_face_result.gif)
 
 We're going to cover the following:
 
@@ -16,7 +16,7 @@ We're going to cover the following:
 
 The result is the ability to stream blend shape parameters live from your iPhone X into Unity to control your animation rig.
 
-<video controls="controls" width="1280" height="720" name="Video Name" src="images/resultlivesmall.mov"></video>
+<video controls="controls" width="1280" height="720" name="Video Name" src="images/img_face_resultlivesmall.mov"></video>
 
 ### Hasn't this been done? ###
 
@@ -40,13 +40,13 @@ The most labour intensive part is mimicking Apple's morph targets on your custom
 
 There are *a lot* of blend shapes.
 
-![Apple ARKit Blend Shapes](images/appleblendshapes.gif)
+![Apple ARKit Blend Shapes](images/img_face_appleblendshapes.gif)
 
 In total there are [51 blend shapes](https://developer.apple.com/documentation/arkit/arfaceanchor.blendshapelocation) including things like `eyeBlinkLeft`, `eyeWideRight`, `mouthFunnel`, `mouthLowerDownLeft` and so on. Most of these are symmetrical in that they have left and right equivalents.
 
 Here are the blend shapes we made for our sample model. These are fairly basic and were made quickly so we could test the validity of the idea. Your own custom models could have much nicer, more intricate blend shapes.
 
-![Morph Targets](images/morphtargets.gif)
+![Morph Targets](images/img_face_morphtargets.gif)
 
 ### How does it work? ###
 
@@ -58,7 +58,7 @@ You can get it here: [github.com/johnjcsmith/iPhoneMoCap](https://github.com/joh
 
 The iOS app streams the Blend Shapes Apple provides in `ARFaceAnchor.blendShapes` to the Unity host through a UDP socket. Essentially emitting a stream of messages, each with 50 blend shapes in the format `'blend-shape-name:blend-shape-value'`.
 
-![Live Demo](images/johnphone.jpg)
+![Live Demo](images/img_face_johnphone.jpg)
 
 There are lots of performance improvements to be made here but it works for the purpose of a demo.
 
