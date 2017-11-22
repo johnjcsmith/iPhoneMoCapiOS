@@ -34,8 +34,18 @@ There are lots of performance improvements to be made here but it works for the 
 
 Inside of the Unity host we have an extension which opens up a UDP socket to listen for the iPhone's messages. When it receives a message it applies the blend shape values to the corresponding blend shape on the rig.
 
+The unity extension targets a `SkinnedMeshRenderer` with the name `blendShapeTarget` which
+
 ### Results ###
 
 * Some demos
 * Future work
     -  Optimization
+
+### How to run the project ###
+    1. Clone and open the Unity project from [here](https://bitbucket.org/johnjcsmith/iphonemocap-unity).
+    2. Run the Unity project's scene
+    3. In the menu bar select `iPhoneMoCap` -> `MeshPreview`
+    4. Enable Mesh preview
+    5. Make sure your iPhone X is connected to the same Wifi network and build / run this application. (Don't forget to pod install)
+    6. This application should discover the unity host and begin streaming the motion data.
