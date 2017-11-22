@@ -1,6 +1,6 @@
 # Facial Performance Capture with iPhone X #
 
-When iPhone X and Animoji were announced the *first* thought we had was: can we use this to animate arbitrary 3D characters? That is, not just the Animoji designed by Apple.
+When Apple announced iPhone X and Animoji the first thought we had was: can we use this to animate arbitrary 3D characters? That is, not just the Animoji designed by Apple.
 
 It turns out that yeah, not only is this possible. It's pretty easy and the ARKit face APIs are powerful enough to produce useful animation.
 
@@ -16,11 +16,19 @@ Current automated facial animation techniques analyse voice data for phonemes (e
 
 ### Retargeting Facial Motion to a Mesh Using iPhone X ###
 
-It turns out that ARKit not only gives you the raw vertex data computed from your face, it gives you a set of blend shape values. Blend shape values are just numbers between 0.0 and 1.0 that tell you how much ARKit thinks a certain muscle in your face is moving.
+It turns out that ARKit not only gives you the raw vertex data computed from your face, it gives you a set of blend shape values. Blend shape values are just numbers between 0.0 and ¡1.0 that tell you how much ARKit thinks a certain muscle in your face is moving.
 
 So, for example, the `Jaw Open` blend shape would be 0.0 when your jaw is closed, and 1.0 when your jaw is open. Any value in-between would indicate a partially open jaw.
 
 This is really powerful because if you are a 3D artist not only can you map Apple's blend shapes to your 3D character, you can design an animation rig around the various values. For example, maybe you have a cartoon fox with pointy ears, when you detect a frown you could automatically turn the ears downwards (in fact, Apple does this with their own Animoji).
+
+### Making the Morph Targets ###
+
+The most labour intensive part is mimicking Apple's morph targets on your custom 3D mesh.
+
+There are *a lot* of blend shapes.
+
+
 
 ### How does it work? ###
 
