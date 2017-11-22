@@ -1,27 +1,38 @@
-# README #
+# Facial Performance Capture with iPhone X #
 
-Blog post placeholder
+When iPhone X and Animoji were announced the *first* thought we had was: can we use this to animate arbitrary 3D characters? That is, not just the Animoji designed by Apple.
 
-### Retargeting Facial Motion to a Mesh Using iPhone X ###
-
-* Quick summary
+It turns out that yeah, not only is this possible. It's pretty easy and the ARKit face APIs are powerful enough to produce useful animation.
 
 ### Hasn't this been done? ###
 
-* Houdini version using vertex data
-* Why this is different
+There was a recent video showing the 3D output from the iPhone X front camera module. It's a great post and shows the raw vertex data captured from the iPhone and put into Houdini (3D animation software). What we wanted, however, was to get the facial motion data itself and re-target it to an arbitrary 3D model.
+
+So, for example, you could perform your in-game character's lip sync and facial expressions just by holding your iPhone X up to your face. Or maybe you're animating a character for a TV series.
+
+Current automated facial animation techniques analyse voice data for phonemes (e.g., `ee`, `oo`, `ah`) and map those sounds to 3D model blend shapes. We figured the iPhone X could produce more dynamic facial expressions, including brow movement, blinking, nose flaring, and eye lid movement.
+
+### Retargeting Facial Motion to a Mesh Using iPhone X ###
+
+It turns out that ARKit not only gives you the raw vertex data computed from your face, it gives you a set of blend shape values. Blend shape values are just numbers between 0.0 and 1.0 that tell you how much ARKit thinks a certain muscle in your face is moving.
+
+So, for example, the `Jaw Open` blend shape would be 0.0 when your jaw is closed, and 1.0 when your jaw is open. Any value in-between would indicate a partially open jaw.
+
+This is really powerful because if you are a 3D artist not only can you map Apple's blend shapes to your 3D character, you can design an animation rig around the various values. For example, maybe you have a cartoon fox with pointy ears, when you detect a frown you could automatically turn the ears downwards (in fact, Apple does this with their own Animoji).
 
 ### How does it work? ###
 
+The demo consists of two parts. The iOS app and the Unity extension host.
 
 #### iOS App  ####
-The iOS app streams the Blend Shapes Apple provides in `ARFaceAnchor.blendShapes` to the Unity host through a UDP socket. Essentialy emitting a stream of messages, each with 50 bend shapes in the format 'blend-shape-name:blend-shape-value'.
 
-There are lots of performance improvments to be made here but it works for the purpouse of a demo.
+The iOS app streams the Blend Shapes Apple provides in `ARFaceAnchor.blendShapes` to the Unity host through a UDP socket. Essentially emitting a stream of messages, each with 50 blend shapes in the format 'blend-shape-name:blend-shape-value'.
 
-#### Unity extension host  ####
-Inside of the Unity host, we have an extension which opens up a UDP socket to listen for the iOS app's messages and applies the blend shape values to the corrisponding blend shape on the rig.
+There are lots of performance improvements to be made here but it works for the purpose of a demo.
 
+#### Unity Extension Host ####
+
+Inside of the Unity host we have an extension which opens up a UDP socket to listen for the iPhone's messages. When it receives a message it applies the blend shape values to the corresponding blend shape on the rig.
 
 ### Results ###
 
