@@ -1,4 +1,4 @@
-# Facial Performance Capture with iPhone X #
+# Real-time Facial Performance Capture with iPhone X #
 
 When Apple announced iPhone X and Animoji the first thought we had was: can we use this to animate arbitrary 3D characters? That is, not just the Animoji designed by Apple.
 
@@ -50,9 +50,9 @@ The demo consists of two parts. The iOS app and the Unity extension host.
 
 #### iOS App  ####
 
-The iOS app streams the Blend Shapes Apple provides in `ARFaceAnchor.blendShapes` to the Unity host through a UDP socket. Essentially emitting a stream of messages, each with 50 blend shapes in the format 'blend-shape-name:blend-shape-value'.
+The iOS app streams the Blend Shapes Apple provides in `ARFaceAnchor.blendShapes` to the Unity host through a UDP socket. Essentially emitting a stream of messages, each with 50 blend shapes in the format ``'blend-shape-name:blend-shape-value'`.
 
-![Phone App](images/johnphone.jpg)
+<video controls="controls" width="1280" height="720" name="Video Name" src="images/resultlivesmall.mov"></video>
 
 There are lots of performance improvements to be made here but it works for the purpose of a demo.
 
